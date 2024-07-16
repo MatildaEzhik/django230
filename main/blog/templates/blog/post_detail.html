@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+
+    <h2>добавить комментарий</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit">сохранить комментарий</button>
+    </form>
+
+    <h2>комментарии</h2>
+    {% for comment in post.comments.all %}
+        <p>{{ comment.content }}</p>
+    {% empty %}
+        <p>пока еще нет комментариев</p>
+    {% endfor %}
+</body>
+</html>

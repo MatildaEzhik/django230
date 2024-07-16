@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>авторы</title>
+</head>
+<body>
+    <h1>авторы</h1>
+    <ul>
+    {% for author in authors %}
+        <li><a href="{% url 'author_detail' author.pk %}">{{ author.username }}</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
